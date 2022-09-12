@@ -14,7 +14,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     Future.delayed(
       const Duration(seconds: 3),
-          () {
+      () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (_) => const HomePage(),
@@ -29,12 +29,11 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: RexColors.pageColor,
-      body: Container(
-        child: Center(
-            child: Image.asset('images/Rex logo.png'),
-          ),
+      body: Center(
+        child: SizedBox(
+          child: Image.asset('images/Rex logo.png'),
+        ),
       ),
-
     );
   }
 }
