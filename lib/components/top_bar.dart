@@ -75,3 +75,5 @@ class _TopBarState extends State<TopBar> {
     );
   }
 }
+
+//TODO: Change the appBar picture when ABOO sends it over, and also the icons everywhere.

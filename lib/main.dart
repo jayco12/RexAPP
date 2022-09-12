@@ -10,6 +10,8 @@ import 'package:rex/views/our_contact.dart';
 import 'package:rex/views/salon_form.dart';
 import 'package:rex/views/salon_page.dart';
 
+import 'components/base_button.dart';
+
 void main() {
   runApp(const Rex(),);
 }
@@ -22,12 +24,9 @@ class Rex extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Rex',
-      theme: ThemeData().copyWith(
-        scaffoldBackgroundColor: RexColors.pageColor,
-      ),
-      initialRoute: '/1',
+      home: HomePage(),
       routes:   {
-        '/1': (BuildContext context) => SplashView(),
+        '/splash': (BuildContext context) => SplashView(),
         '/a': (BuildContext context) => HomePage(),
         '/b': (BuildContext context) => OurContact(),
         // '/c': (BuildContext context) => Info(),

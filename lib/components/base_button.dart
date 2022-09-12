@@ -6,8 +6,6 @@ import 'package:rex/components/rex_colors.dart';
 import 'package:rex/views/salon_page.dart';
 import 'package:rex/views/user_info.dart';
 
-
-
 // class HomeView extends StatefulWidget {
 //   const HomeView({Key? key}) : super(key: key);
 //
@@ -82,43 +80,50 @@ class BaseButton extends StatefulWidget {
 class _BaseButtonState extends State<BaseButton> {
   int pageIndex = 0;
 
-  static const List pages = [
-    const BaseButton(),
-    // const Cart(),
-    const GazPage(),
-    const SalonPage(),
+  List pages = [
+    HomePage(),
+    Placeholder(),
+    UserInfo(),
   ];
-  void onItemTapped(int index) {
-    setState(() {
-      pageIndex = index;
-    });
-  }
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      showSelectedLabels: true,
-      showUnselectedLabels: false,
-      iconSize: 30.0,
-      backgroundColor: RexColors.pageColor,
-      elevation: 12.0,
-      items: [
-        BottomNavigationBarItem(
-          icon:Icon(Icons.home,),
-          label: 'Home',),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_sharp,),
-            label: 'Cart'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.person,),
-            label: 'User'),
-      ],
-      selectedItemColor: RexColors.textColor,
-      unselectedItemColor: RexColors.orderColorShadow,
-      currentIndex: pageIndex,
-      onTap: onItemTapped,
-      );
+    return Scaffold(
+      body: pages[pageIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: true,
+        showUnselectedLabels: false,
+        iconSize: 30.0,
+        backgroundColor: RexColors.pageColor,
+        elevation: 12.0,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.shopping_cart_sharp,
+              ),
+              label: 'Cart'),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+              ),
+              label: 'User'),
+        ],
+        selectedItemColor: RexColors.textColor,
+        unselectedItemColor: RexColors.orderColorShadow,
+        currentIndex: pageIndex,
+        onTap: (index) {
+          setState(() {
+            pageIndex = index;
+          });
+        },
+      ),
+    );
   }
 }
 
-
-
+//TODO: Fix the bottom Navigation  to work as it should.

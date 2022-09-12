@@ -86,3 +86,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+//TODO: Change the image slider thingy.
