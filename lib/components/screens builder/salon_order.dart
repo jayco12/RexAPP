@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+import 'package:rex/components/utilities/rex_colors.dart';
+import 'package:rex/screens/salon_form.dart';
+
+class SalonOrder extends StatelessWidget {
+  const SalonOrder({Key? key, required this.services}) : super(key: key);
+
+  final Image services;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      highlightElevation: 0.0,
+      elevation: 0.0,
+      constraints: const BoxConstraints.tightFor(
+        width: 133.0,
+        height: 133.0,
+      ),
+      shape: const CircleBorder(
+      ),
+      fillColor: RexColors.pageColor,
+      onPressed: (){Navigator.pushNamed(context, SalonForm.id);},
+      child: services,
+    );
+  }
+}

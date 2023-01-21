@@ -1,20 +1,19 @@
-
 import 'package:flutter/material.dart';
-import 'package:rex/views/splash_view.dart';
-import 'package:rex/views/about_us.dart';
-import 'package:rex/views/gaz_form.dart';
-import 'package:rex/views/gaz_page.dart';
-import 'package:rex/views/home_page.dart';
-import 'package:rex/components/rex_colors.dart';
-import 'package:rex/views/our_contact.dart';
-import 'package:rex/views/salon_form.dart';
-import 'package:rex/views/salon_page.dart';
+import 'package:rex/cart_page.dart';
+import 'package:rex/screens/splash_view.dart';
+import 'package:rex/screens/about_us.dart';
+import 'package:rex/screens/gaz_page.dart';
+import 'package:rex/screens/home_page.dart';
+import 'package:rex/screens/our_contact.dart';
+import 'package:rex/screens/salon_form.dart';
+import 'package:rex/screens/salon_page.dart';
+import 'package:rex/screens/user_info.dart';
 
-import 'components/base_button.dart';
 
 void main() {
   runApp(const Rex(),);
 }
+
 
 class Rex extends StatelessWidget {
   const Rex({Key? key}) : super(key: key);
@@ -24,19 +23,20 @@ class Rex extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Rex',
-      home: HomePage(),
+      initialRoute: SplashView.id,
       routes:   {
-        '/splash': (BuildContext context) => SplashView(),
-        '/a': (BuildContext context) => HomePage(),
-        '/b': (BuildContext context) => OurContact(),
-        // '/c': (BuildContext context) => Info(),
-        '/d': (BuildContext context) => AboutUs(),
-        '/e': (BuildContext context) => GazPage(),
-        '/f': (BuildContext context) => GazForm(),
-        '/g': (BuildContext context) => SalonPage(),
-        '/h': (BuildContext context) => SalonForm(),
+        SplashView.id: (context) => SplashView(),
+        HomePage.id: (context) => HomePage(),
+        OurContact.id: (context) => OurContact(),
+        AboutUs.id: (context) => AboutUs(),
+        CartPage.id: (context) => CartPage(),
+        GazPage.id: (context) => GazPage(),
+        SalonPage.id: (context) => SalonPage(),
+        SalonForm.id: (context) => SalonForm(),
+        UserInfo.id: (context) => UserInfo(),
       },
     );
   }
 }
+
 
