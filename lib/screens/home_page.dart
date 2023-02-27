@@ -1,15 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mj_image_slider/mj_image_slider.dart';
 import 'package:mj_image_slider/mj_options.dart';
-import 'package:rex/components/header&footer/base_button.dart';
-import 'package:rex/components/screens builder/businesses.dart';
+import 'package:rex/components/screens template/businesses.dart';
 import 'package:rex/components/utilities/choice_text.dart';
-import 'package:rex/screens/gaz_page.dart';
-import 'package:rex/screens/salon_page.dart';
 
 
 class HomePage extends StatefulWidget {
-  static const String id = 'home_page';
 
   const HomePage({Key? key}) : super(key: key);
 
@@ -57,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                   image: Image.asset('images/Gaz.png'),
                   service: 'GAZ',
                   onTap: () {
-                    Navigator.pushNamed(context, GazPage.id);
+                    context.router.pushNamed('/gaz-page');
                   },
                 ),
                 const SizedBox(width: 30.0),
@@ -65,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                   image: Image.asset('images/Salon.png'),
                   service: 'SALON',
                   onTap: () {
-                    Navigator.pushNamed(context, SalonPage.id);
+                    context.router.pushNamed('/salon-page');
                   },
                 ),
               ],

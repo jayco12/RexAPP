@@ -1,24 +1,27 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:rex/components/header&footer/top_bar.dart';
 import 'package:rex/components/utilities/rex_colors.dart';
-import 'package:rex/screens/home_page.dart';
-import 'package:rex/screens/salon_page.dart';
-import 'package:rex/screens/user_info.dart';
-
-
-
+import 'package:rex/screens/cart/start_shopping.dart';
+// import '../../routes/app_router.gr.dart';
+import '../../screens/home_page.dart';
+import '../../screens/user_info.dart';
+import '../../screens/cart/cart_screen2.dart';
 
 class BaseButton extends StatefulWidget {
+  const BaseButton({Key? key}) : super(key: key);
+
   @override
   _BaseButtonState createState() => _BaseButtonState();
 }
 
 class _BaseButtonState extends State<BaseButton> {
   int _selectedIndex = 0;
-  List _widgetOptions = [
-    HomePage(),
-    //CartPage.id,
-    UserInfo(),
+  final List _widgetOptions = [
+    const HomePage(),
+    //const StartShopping(),
+    const CartScreen2(),
+    const UserInfo(),
   ];
 
   void _onItemTap(int index) {
@@ -30,9 +33,27 @@ class _BaseButtonState extends State<BaseButton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size(double.infinity, 120),
-        child: TopBar(),
+      appBar: PreferredSize(
+        preferredSize: const Size(double.infinity, 120),
+        child: TopBar(
+          phonenavigator: InkResponse(
+            onTap: () {
+              context.router.pushNamed('/our-contact');
+            },
+            child: const Icon(Icons.phone),
+          ),
+          infonavigator: InkResponse(
+            onTap: () {
+              //widget.infonavigator;
+            },
+            child: const Icon(Icons.info_outline_rounded),
+          ),
+          aboutnavigator: InkResponse(
+              onTap: () {
+                context.router.pushNamed('/about-us');
+              },
+              child: const Icon(Icons.group_rounded)),
+        ),
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: Container(
@@ -60,15 +81,14 @@ class _BaseButtonState extends State<BaseButton> {
                 margin: EdgeInsets.zero,
                 image: 'images/carticon.png',
                 onTap: () {
-                  //TODO: When you build cart page, replace the navigator with the cart page.
-                  // Navigator.pushNamed(context, '/a');
+                  _onItemTap(1);
                 },
               ),
               Base(
                 margin: const EdgeInsets.only(left: 71.1, right: 59.0),
                 image: 'images/usericon.png',
                 onTap: () {
-                  _onItemTap(1);
+                  _onItemTap(2);
                 },
               ),
             ],

@@ -1,26 +1,28 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rex/components/utilities/back_arrow.dart';
 import 'package:rex/components/utilities/choice_text.dart';
 import 'package:rex/components/utilities/constants.dart';
 import 'package:rex/components/utilities/submit.dart';
-import 'package:rex/components/screens builder/gas_form_field.dart';
+import 'package:rex/components/screens template/gas_form_field.dart';
 import 'package:rex/components/header&footer/top_bar.dart';
-import 'package:rex/components/screens builder/gas_form_text.dart';
+import 'package:rex/components/screens template/gas_form_text.dart';
 import 'package:rex/components/utilities/floating_button.dart';
-import 'package:rex/screens/salon_page.dart';
 import 'package:rex/components/utilities/gaz_class.dart';
 
 class GazForm extends StatefulWidget {
   const GazForm({Key? key, required this.image}) : super(key: key);
 
   final String image;
+
   @override
   State<GazForm> createState() => _GazFormState();
 }
 
 class _GazFormState extends State<GazForm> {
   String dropdownValue = '6KG';
+
 
   DropdownButton<String> dropDown() {
     List<DropdownMenuItem<String>> dropDownItems = [];
@@ -59,7 +61,7 @@ class _GazFormState extends State<GazForm> {
         gasValues = gas;
       });
     } catch (e) {
-      print(e);
+      //print(e);
     }
   }
 
@@ -73,36 +75,59 @@ class _GazFormState extends State<GazForm> {
     List<Gas> gazPrice = [];
     for (String amount in gasPrice) {
       //print(amount);
-      if(dropdownValue == gasKg[0]){
-        return gasPrice[0];
-      }
-      else if(dropdownValue == gasKg[1]){
-        return gasPrice[1];
+      if (dropdownValue == gasKg[0]) {
+        var gasOne = quantite * int.parse(gasPrice[0]) ;
+        print(gasOne);
+        return gasOne.toString();
+      } else if (dropdownValue == gasKg[1]) {
+        var gasTwo = quantite * int.parse(gasPrice[1]);
+        print(gasTwo);
+        return gasTwo.toString();
       }
       gazPrice.add(
         Gas(
           dropdownValue: dropdownValue,
           value: gasValues[amount].toString(),
         ),
-
       );
     }
-    return gazPrice.toString();
+    return getPrice();
   }
+
+  int quantite = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size(double.infinity, 120),
-        child: TopBar(),
+      appBar: PreferredSize(
+        preferredSize: const Size(double.infinity, 120),
+        child: TopBar(
+          phonenavigator: InkResponse(
+            onTap: () {
+              context.router.pushNamed('/our-contact');
+            },
+            child: const Icon(Icons.phone),
+          ),
+          infonavigator: InkResponse(
+            onTap: () {
+              //widget.infonavigator;
+            },
+            child: const Icon(Icons.info_outline_rounded),
+          ),
+          aboutnavigator: InkResponse(
+            onTap: () {
+              context.router.pushNamed('/about-us');
+            },
+            child: const Icon(Icons.group_rounded),
+          ),
+        ),
       ),
       body: Column(
         children: [
           FloatingButton(
             button: Image.asset('images/Salon.png'),
             onTap: () {
-              Navigator.pushReplacementNamed(context, SalonPage.id);
+              context.router.replaceNamed('/salon-page');
             },
           ),
           const BackArrow(),
@@ -149,27 +174,35 @@ class _GazFormState extends State<GazForm> {
                                 left: 20.0,
                               ),
                               text: 'Quantite'),
-                          const GazFormField(
-                            margin: EdgeInsets.only(
+                          GazFormField(
+                            margin: const EdgeInsets.only(
                               left: 20.0,
                               right: 80.0,
                             ),
                             enabled: true,
                             text: '1',
+                            onChanged: (quantite) {
+                              setState(() {
+                                quantite.toString();
+                              });
+                              print(quantite);
+                            },
                           ),
                           const SizedBox(
                             height: 5.0,
                           ),
                           const GasFormText(
-                              margin: EdgeInsets.only(
-                                left: 20.0,
-                              ),
-                              text: 'Prix'),
+                            margin: EdgeInsets.only(
+                              left: 20.0,
+                            ),
+                            text: 'Prix',
+                          ),
                           GazFormField(
                             enabled: false,
-                            margin: EdgeInsets.only(left: 20.0, right: 44.0),
+                            margin:
+                                const EdgeInsets.only(left: 20.0, right: 44.0),
                             text: getPrice(),
-                          ), //'5,000'
+                          ),
                           const SizedBox(
                             height: 10.0,
                           ),
@@ -192,7 +225,6 @@ class _GazFormState extends State<GazForm> {
           ),
         ],
       ),
-      // bottomNavigationBar: const BaseButton(),
     );
   }
 }

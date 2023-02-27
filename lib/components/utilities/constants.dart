@@ -43,6 +43,41 @@ const kActualContact = TextStyle(
   fontSize: 16.0,
 );
 
+const kCart0 = TextStyle(
+  fontFamily: 'fonts/Poppins-Bold.ttf',
+  fontWeight: FontWeight.bold,
+  color: RexColors.orderColorShadow,
+  fontSize: 19.0,
+);
+
+const kCart1 = TextStyle(
+  fontFamily: 'fonts/Poppins-Regular.ttf',
+  fontWeight: FontWeight.w400,
+  color: RexColors.orderColorShadow,
+  fontSize: 16.0,
+);
+
+const kCart2 = TextStyle(
+  fontFamily: 'fonts/Poppins-Regular.ttf',
+  fontWeight: FontWeight.w400,
+  color: RexColors.orderTextColor,
+  fontSize: 11.0,
+);
+
+const kCart3 = TextStyle(
+  fontFamily: 'fonts/Poppins-Medium.ttf',
+  fontWeight: FontWeight.w400,
+  color: RexColors.textColor,
+  fontSize: 9.0,
+);
+
+const kCart4 = TextStyle(
+  fontFamily: 'fonts/Poppins-SemiBold.ttf',
+  fontWeight: FontWeight.bold,
+  color: RexColors.orderTextColor,
+  fontSize: 16.0,
+);
+
 const kInformationUtilisateur = TextStyle(
   fontFamily: 'fonts/Poppins-Medium.ttf',
   fontWeight: FontWeight.w600,

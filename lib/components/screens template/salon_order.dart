@@ -1,6 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:rex/components/utilities/rex_colors.dart';
-import 'package:rex/screens/salon_form.dart';
 
 class SalonOrder extends StatelessWidget {
   const SalonOrder({Key? key, required this.services}) : super(key: key);
@@ -16,10 +16,11 @@ class SalonOrder extends StatelessWidget {
         width: 133.0,
         height: 133.0,
       ),
-      shape: const CircleBorder(
-      ),
+      shape: const CircleBorder(),
       fillColor: RexColors.pageColor,
-      onPressed: (){Navigator.pushNamed(context, SalonForm.id);},
+      onPressed: () {
+        context.router.pushNamed('/salon-form');
+      },
       child: services,
     );
   }

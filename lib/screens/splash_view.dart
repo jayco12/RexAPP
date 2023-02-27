@@ -1,11 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:rex/components/header&footer/base_button.dart';
-import 'package:rex/components/utilities/rex_colors.dart';
-import 'package:lottie/lottie.dart';
-import 'package:rex/screens/home_page.dart';
+import 'package:video_player/video_player.dart';
 
 class SplashView extends StatefulWidget {
-  static const String id = 'splash_view';
 
   const SplashView({Key? key}) : super(key: key);
 
@@ -14,32 +11,52 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
+  VideoPlayerController? _controller;
+
   @override
   void initState() {
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (_) =>  BaseButton(),
-          ),
-        );
-      },
-    );
     super.initState();
+    Future.delayed(Duration.zero, () {
+      _controller = VideoPlayerController.asset('videos/splashScreen.mp4')
+        ..initialize().then((_) => setState(() {}))
+        ..play();
+
+      _controller?.addListener(() {
+        if (_controller?.value.isPlaying == false) {
+          context.router.replaceNamed(
+              '/base-button'
+          );
+        }
+      });
+
+      setState(() {});
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      //backgroundColor: RexColors.pageColor,
-      body: Lottie.asset(
-        'splashScreen.mp4',
-        width: 200,
-        height: 200,
-        fit: BoxFit.fill,
-      )
+    return MaterialApp(
+      title: 'Video Demo',
+      home: Scaffold(
+        body: Center(
+          child: _controller?.value.isInitialized ?? false
+              ? AspectRatio(
+                  aspectRatio: _controller?.value.aspectRatio ?? 1,
+                  child: _controller == null
+                      ? const SizedBox()
+                      : VideoPlayer(_controller!),
+                )
+              : Container(),
+        ),
+      ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+
+    super.dispose();
   }
 }
 

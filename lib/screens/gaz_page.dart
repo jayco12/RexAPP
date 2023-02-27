@@ -1,29 +1,49 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:rex/components/screens builder/gaz_order.dart';
+import 'package:rex/components/screens template/gaz_order.dart';
 import 'package:rex/components/utilities/choice_text.dart';
 import 'package:rex/screens/gaz_form.dart';
 import 'package:rex/components/header&footer/top_bar.dart';
 import 'package:rex/components/utilities/floating_button.dart';
-import 'package:rex/screens/salon_page.dart';
 
 class GazPage extends StatelessWidget {
-  static const String id = 'gaz_page';
 
   const GazPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size(double.infinity, 120),
-        child: TopBar(),
+      appBar: PreferredSize(
+        preferredSize: const Size(double.infinity, 120),
+        child: TopBar(
+          phonenavigator:InkResponse(
+            onTap: () {
+              context.router.pushNamed('/our-contact');
+            },
+            child: const Icon(Icons.phone),
+          ),
+          infonavigator: InkResponse(
+            onTap: () {
+              //widget.infonavigator;
+            },
+            child: const Icon(Icons.info_outline_rounded),
+          ),
+          aboutnavigator: InkResponse(
+              onTap: () {
+                context.router.pushNamed('/about-us');
+              },
+              child: const Icon(Icons.group_rounded)),
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FloatingButton(button: Image.asset('images/Salon.png'), onTap: () {
-            Navigator.pushReplacementNamed(context, SalonPage.id);
-          },),
+          FloatingButton(
+            button: Image.asset('images/Salon.png'),
+            onTap: () {
+              context.router.replaceNamed('/salon-page');
+            },
+          ),
           const ChoiceText(),
           Expanded(
             child: ListView(
@@ -71,7 +91,9 @@ class GazPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 15.0,),
+                    const SizedBox(
+                      height: 15.0,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -93,8 +115,8 @@ class GazPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const GazForm(image: 'images/DangaraGaz.png'),
+                                builder: (context) => const GazForm(
+                                    image: 'images/DangaraGaz.png'),
                               ),
                             );
                           },
@@ -105,15 +127,17 @@ class GazPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const GazForm(image: 'images/SonihyGaz.png'),
+                                builder: (context) => const GazForm(
+                                    image: 'images/SonihyGaz.png'),
                               ),
                             );
                           },
                         ),
                       ],
                     ),
-                    const SizedBox(height: 15.0,),
+                    const SizedBox(
+                      height: 15.0,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -147,15 +171,17 @@ class GazPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const GazForm(image: 'images/TenereGaz.png'),
+                                builder: (context) => const GazForm(
+                                    image: 'images/TenereGaz.png'),
                               ),
                             );
                           },
                         ),
                       ],
                     ),
-                    const SizedBox(height: 15.0,),
+                    const SizedBox(
+                      height: 15.0,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -165,8 +191,8 @@ class GazPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const GazForm(image: 'images/ZamaniGaz.png'),
+                                builder: (context) => const GazForm(
+                                    image: 'images/ZamaniGaz.png'),
                               ),
                             );
                           },
@@ -180,8 +206,8 @@ class GazPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const GazForm(image: 'images/LesAutres.png'),
+                                builder: (context) => const GazForm(
+                                    image: 'images/LesAutres.png'),
                               ),
                             );
                           },

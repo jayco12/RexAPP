@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:rex/components/header&footer/base_button.dart';
-import 'package:rex/screens/about_us.dart';
-import 'package:rex/screens/home_page.dart';
-import 'package:rex/screens/our_contact.dart';
-
-enum ViewPages {
-  OurContact(),
-  AboutUs(),
-}
 
 class TopBar extends StatelessWidget {
-  const TopBar({
-    Key? key,
-  }) : super(key: key);
+  TopBar(
+      {Key? key, this.phonenavigator, this.infonavigator, this.aboutnavigator})
+      : super(key: key);
+
+  var phonenavigator;
+  var infonavigator;
+  var aboutnavigator;
 
   @override
   Widget build(BuildContext context) {
-    BuildContext? currentPage;
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 0.0,
@@ -47,20 +41,29 @@ class TopBar extends StatelessWidget {
             const SizedBox(
               width: 145.0,
             ),
-            InkResponse(
-              onTap: () {
-                Navigator.pushNamed(context, OurContact.id);
-              },
-              child: const Icon(Icons.phone),
-            ),
+            phonenavigator,
+            // InkResponse(
+            //   onTap: () {
+            //     Navigator.pushNamed(context, OurContact.id);
+            //   },
+            //   child: const Icon(Icons.phone),
+            // ),
             const SizedBox(width: 20.0),
-            const Icon(Icons.info_outline_rounded),
+            infonavigator,
+            // InkResponse(
+            //   onTap: () {
+            //     //widget.infonavigator;
+            //   },
+            //   child: const Icon(Icons.info_outline_rounded),
+            // ),
             const SizedBox(width: 20.0),
-            InkResponse(
-                onTap: () {
-                  Navigator.pushNamed(context, AboutUs.id);
-                },
-                child: const Icon(Icons.group_rounded)),
+            aboutnavigator,
+            // InkResponse(
+            //   onTap: () {
+            //     Navigator.pushNamed(context, AboutUs.id);
+            //   },
+            //   child: const Icon(Icons.group_rounded),
+            // ),
             const SizedBox(width: 20.0),
           ],
         ),
@@ -69,6 +72,6 @@ class TopBar extends StatelessWidget {
   }
 }
 
-
 //TODO:https://www.iconfinder.com/search?q=cart - for the icons
 //TODO:(https://medium.com/flutter-community/how-to-add-custom-icons-to-your-flutter-application-463dbd35fd39) - to add the icons to project.
+

@@ -1,21 +1,34 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rex/components/utilities/constants.dart';
-import 'package:rex/components/screens builder/contact.dart';
+import 'package:rex/components/screens template/contact.dart';
 import 'package:rex/components/header&footer/top_bar.dart';
 
 class OurContact extends StatelessWidget {
-  static const String id = 'our_contact';
 
   const OurContact({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size(double.infinity, 120),
-        child: TopBar(),
+      appBar: PreferredSize(
+        preferredSize: const Size(double.infinity, 120),
+        child: TopBar(
+          phonenavigator: Container(),
+          infonavigator: InkResponse(
+            onTap: () {
+              //widget.infonavigator;
+            },
+            child: const Icon(Icons.info_outline_rounded),
+          ),
+          aboutnavigator: InkResponse(
+              onTap: () {
+                context.router.replaceNamed('/about-us');
+              },
+              child: const Icon(Icons.group_rounded)),
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -58,7 +71,6 @@ class OurContact extends StatelessWidget {
           ),
         ],
       ),
-      // bottomNavigationBar: const BaseButton(),
     );
   }
 }
@@ -77,5 +89,3 @@ class Div extends StatelessWidget {
     );
   }
 }
-
-

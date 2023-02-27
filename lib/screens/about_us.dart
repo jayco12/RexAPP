@@ -1,22 +1,36 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rex/components/utilities/constants.dart';
 import 'package:rex/components/header&footer/top_bar.dart';
 
 class AboutUs extends StatelessWidget {
-  static const String id = 'about_us';
 
   const AboutUs({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size(
+      appBar:  PreferredSize(
+        preferredSize: const Size(
           double.infinity,
           120,
         ),
-        child: TopBar(),
+        child: TopBar(
+          phonenavigator: InkResponse(
+            onTap: () {
+              context.router.replaceNamed('/our-contact');
+            },
+            child: const Icon(Icons.phone),
+          ),
+          infonavigator: InkResponse(
+            onTap: () {
+              //widget.infonavigator;
+            },
+            child: const Icon(Icons.info_outline_rounded),
+          ),
+          aboutnavigator: Container(),
+        ),
       ),
       body: Column(children: [
         const SizedBox(
@@ -119,8 +133,7 @@ class AboutUs extends StatelessWidget {
             ],
           ),
         ),
-      ]),
-      //bottomNavigationBar: const BaseButton(),
+      ],),
     );
   }
 }

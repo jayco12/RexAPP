@@ -3,8 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../utilities/constants.dart';
 
 class GazFormField extends StatelessWidget {
-  const GazFormField({
+   GazFormField({
     Key? key,
+    this.onChanged,
     required this.enabled,
     required this.margin,
     required this.text,
@@ -13,6 +14,7 @@ class GazFormField extends StatelessWidget {
   final bool enabled;
   final dynamic margin;
   final String text;
+  void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class GazFormField extends StatelessWidget {
         style: GoogleFonts.roboto(
           textStyle: kFormStyleRoboto,
         ),
+        onChanged: onChanged,
       ),
     );
   }

@@ -1,11 +1,12 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rex/components/utilities/constants.dart';
 import 'package:rex/components/utilities/submit.dart';
-import 'package:rex/components/screens builder/user.dart';
+import 'package:rex/components/screens template/user.dart';
 
 class UserInfo extends StatelessWidget {
-  static const String id = 'user_info';
   const UserInfo({Key? key}) : super(key: key);
 
   @override
@@ -30,24 +31,28 @@ class UserInfo extends StatelessWidget {
           ),
           Expanded(
             child: ListView(
-              children: const [
-                User(image: 'images/abouticon.png', placeholder: 'Caleb Peter'),
-                SizedBox(
+              children:  [
+                const User(image: 'images/abouticon.png', placeholder: 'Caleb Peter'),
+                const SizedBox(
                   height: 29.0,
                 ),
-                User(
+                const User(
                     image: 'images/telephone.png',
                     placeholder: '+227 01234567'),
-                SizedBox(
+                const SizedBox(
                   height: 26.0,
                 ),
                 User(
                     image: 'images/locationicon.png',
-                    placeholder: 'Adresse de livraison'),
-                SizedBox(
+                    placeholder: 'Adresse de livraison',
+                    onTap: () {
+                      context.router.pushNamed('/select-location');
+                    },
+                ),
+                const SizedBox(
                   height: 45.5,
                 ),
-                Submit(
+                const Submit(
                     margin: EdgeInsets.only(left: 116.0, right: 116.0),
                     text: 'SAUVEGARDER'),
               ],

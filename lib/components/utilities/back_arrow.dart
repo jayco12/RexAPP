@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rex/components/utilities/rex_colors.dart';
@@ -21,7 +22,7 @@ class _BackArrowState extends State<BackArrow> {
           InkResponse(
             onTap: () {
               setState(() {
-                Navigator.pop(context);
+                context.router.pop();
               });
             },
             child: const FaIcon(

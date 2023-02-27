@@ -4,11 +4,12 @@ import 'package:rex/components/utilities/rex_colors.dart';
 import '../utilities/constants.dart';
 
 class User extends StatelessWidget {
-  const User({Key? key, required this.image, required this.placeholder})
+  const User({Key? key, required this.image, required this.placeholder, this.onTap})
       : super(key: key);
 
   final String placeholder;
   final String image;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +17,7 @@ class User extends StatelessWidget {
       height: 37.0,
       margin: const EdgeInsets.only(left: 34.0, right: 33.0),
       child: CupertinoTextField(
+        onTap: onTap,
         prefix: Container(
           margin: const EdgeInsets.only(left: 14.9, right: 16.27),
           child: ImageIcon(
