@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rex/routes/app_router.gr.dart';
-import 'package:rex/screens/gaz_form.dart';
-import 'package:rex/screens/gaz_page.dart';
+// import 'package:rex/screens/splash_view.dart';
 
 void main() {
   runApp(
@@ -15,17 +14,17 @@ class Rex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Rex',
-      home: GazPage(),
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
-    // return MaterialApp.router(
-    //   debugShowCheckedModeBanner: false,
-    //   title: 'Rex',
-    //
-    //   routerDelegate: _appRouter.delegate(),
-    //   routeInformationParser: _appRouter.defaultRouteParser(),
-    // );
+
+      // MaterialApp(
+      //   debugShowCheckedModeBanner: false,
+      //   title: 'Rex',
+      //   home: SplashView(),
+      // );
   }
 }

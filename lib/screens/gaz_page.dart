@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:rex/components/header_footer/base_button.dart';
 import 'package:rex/components/screens template/gaz_order.dart';
 import 'package:rex/components/utilities/choice_text.dart';
 import 'package:rex/screens/gaz_form.dart';
-import 'package:rex/components/header&footer/top_bar.dart';
+import 'package:rex/components/header_footer/top_bar.dart';
 import 'package:rex/components/utilities/floating_button.dart';
 
 class GazPage extends StatelessWidget {
@@ -222,7 +223,7 @@ class GazPage extends StatelessWidget {
           ),
         ],
       ),
-      // bottomNavigationBar:  BaseButton(),
+      //bottomNavigationBar: BaseButton(),
     );
   }
 }

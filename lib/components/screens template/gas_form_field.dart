@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../utilities/constants.dart';
 
 class GazFormField extends StatelessWidget {
-   GazFormField({
+   const GazFormField({
     Key? key,
     this.onChanged,
     required this.enabled,
@@ -14,7 +14,7 @@ class GazFormField extends StatelessWidget {
   final bool enabled;
   final dynamic margin;
   final String text;
-  void Function(String)? onChanged;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {

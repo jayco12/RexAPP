@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:rex/screens/cart/cart_tile.dart';
+import 'package:provider/provider.dart';
+import 'package:rex/screens/cart_screen/cart_tile.dart';
 
 import '../../components/utilities/constants.dart';
 import '../../components/utilities/submit.dart';
+import 'cart_data.dart';
+import 'cart_list.dart';
 
 class CartScreen2 extends StatefulWidget {
   const CartScreen2({Key? key}) : super(key: key);
@@ -33,24 +36,38 @@ class _CartScreen2State extends State<CartScreen2> {
             ],
           ),
           Text(
-            '2 élément',
+            '2 élément', //${Provider.of<CartData>(context).cartCount}
             style: kCart1,
           ),
-          SizedBox(
+          const SizedBox(
             height: 15.0,
           ),
           Expanded(
             child: ListView(
               children: [
-                CartTile(),
-                CartTile(),
-                CartTile(),
-                CartTile(),
-                SizedBox(
+                const CartTile(),
+                const CartTile(),
+                const CartTile(),
+                const CartTile(),
+                // Container(
+                //   padding: const EdgeInsets.symmetric(
+                //     horizontal: 20.0,
+                //   ),
+                //   width: double.infinity,
+                //   decoration: const BoxDecoration(
+                //     color: Colors.white,
+                //     borderRadius: BorderRadius.only(
+                //       topLeft: Radius.circular(20.0),
+                //       topRight: Radius.circular(20.0),
+                //     ),
+                //   ),
+                //   child: const CartList(),
+                // ),
+                const SizedBox(
                   height: 10.0,
                 ),
                 Row(
-                  children: [
+                  children: const [
                     Text(
                       'TOTAL',
                       style: kCart4,
@@ -64,13 +81,13 @@ class _CartScreen2State extends State<CartScreen2> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 42.5,
                 ),
-                Submit(
+                const Submit(
                     margin: EdgeInsets.only(left: 235.0, right: 10.0),
                     text: 'COMMANDE'),
-                SizedBox(
+                const SizedBox(
                   height: 50.0,
                 ),
               ],

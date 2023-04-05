@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class TopBar extends StatelessWidget {
-  TopBar(
+  const TopBar(
       {Key? key, this.phonenavigator, this.infonavigator, this.aboutnavigator})
       : super(key: key);
 
-  var phonenavigator;
-  var infonavigator;
-  var aboutnavigator;
+  final Widget? phonenavigator;
+  final Widget? infonavigator;
+  final Widget? aboutnavigator;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,6 @@ class TopBar extends StatelessWidget {
             child: Image.asset(
               "images/appBar.png",
               fit: BoxFit.fill,
-              // centerSlice:  Rect.fromLTRB(6.0, 1.0, 17.0, 49.0),
             ),
           ),
         ],
@@ -41,7 +40,7 @@ class TopBar extends StatelessWidget {
             const SizedBox(
               width: 145.0,
             ),
-            phonenavigator,
+            phonenavigator!,
             // InkResponse(
             //   onTap: () {
             //     Navigator.pushNamed(context, OurContact.id);
@@ -49,7 +48,7 @@ class TopBar extends StatelessWidget {
             //   child: const Icon(Icons.phone),
             // ),
             const SizedBox(width: 20.0),
-            infonavigator,
+            infonavigator!,
             // InkResponse(
             //   onTap: () {
             //     //widget.infonavigator;
@@ -57,7 +56,7 @@ class TopBar extends StatelessWidget {
             //   child: const Icon(Icons.info_outline_rounded),
             // ),
             const SizedBox(width: 20.0),
-            aboutnavigator,
+            aboutnavigator!,
             // InkResponse(
             //   onTap: () {
             //     Navigator.pushNamed(context, AboutUs.id);
@@ -71,7 +70,4 @@ class TopBar extends StatelessWidget {
     );
   }
 }
-
-//TODO:https://www.iconfinder.com/search?q=cart - for the icons
-//TODO:(https://medium.com/flutter-community/how-to-add-custom-icons-to-your-flutter-application-463dbd35fd39) - to add the icons to project.
 

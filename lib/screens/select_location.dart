@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rex/components/utilities/submit.dart';
 
-import '../components/header&footer/top_bar.dart';
+import '../components/header_footer/top_bar.dart';
 import '../components/utilities/constants.dart';
 
 class SelectLocation extends StatefulWidget {

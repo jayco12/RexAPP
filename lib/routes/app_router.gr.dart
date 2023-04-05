@@ -14,11 +14,11 @@
 import 'package:auto_route/auto_route.dart' as _i14;
 import 'package:flutter/material.dart' as _i15;
 
-import '../components/header&footer/base_button.dart' as _i2;
+import '../components/header_footer/base_button.dart' as _i2;
 import '../screens/about_us.dart' as _i5;
-import '../screens/cart/cart_screen2.dart' as _i7;
-import '../screens/cart/cart_tile.dart' as _i6;
-import '../screens/cart/start_shopping.dart' as _i8;
+import '../screens/cart_screen/cart_screen2.dart' as _i7;
+import '../screens/cart_screen/cart_tile.dart' as _i6;
+import '../screens/cart_screen/start_shopping.dart' as _i8;
 import '../screens/gaz_page.dart' as _i9;
 import '../screens/home_page.dart' as _i3;
 import '../screens/our_contact.dart' as _i4;

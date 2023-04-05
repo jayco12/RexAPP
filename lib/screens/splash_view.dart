@@ -1,9 +1,12 @@
+import 'dart:core';
+
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+import 'package:rex/components/header_footer/base_button.dart';
 
 class SplashView extends StatefulWidget {
-
   const SplashView({Key? key}) : super(key: key);
 
   @override
@@ -11,54 +14,58 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-  VideoPlayerController? _controller;
-
   @override
   void initState() {
+    Future.delayed(
+      const Duration(seconds: 5),
+    ).then(
+      (value) => context.router.replaceNamed('/base-button'),
+    );
     super.initState();
-    Future.delayed(Duration.zero, () {
-      _controller = VideoPlayerController.asset('videos/splashScreen.mp4')
-        ..initialize().then((_) => setState(() {}))
-        ..play();
-
-      _controller?.addListener(() {
-        if (_controller?.value.isPlaying == false) {
-          context.router.replaceNamed(
-              '/base-button'
-          );
-        }
-      });
-
-      setState(() {});
-    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Video Demo',
-      home: Scaffold(
-        body: Center(
-          child: _controller?.value.isInitialized ?? false
-              ? AspectRatio(
-                  aspectRatio: _controller?.value.aspectRatio ?? 1,
-                  child: _controller == null
-                      ? const SizedBox()
-                      : VideoPlayer(_controller!),
-                )
-              : Container(),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 200.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('images/logo.png'),
+              const SizedBox(
+                height: 10.0,
+              ),
+              SizedBox(
+                height: 300,
+                width: 300,
+                child: AnimatedSplashScreen(
+                  splash: Column(
+                    children: [
+                      Image.asset('images/name.png'),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 130.0),
+                        child: Image.asset('images/nif.png'),
+                      ),
+                    ],
+                  ),
+                  backgroundColor: Colors.transparent,
+                  animationDuration: const Duration(seconds: 3),
+                  duration: 3200,
+                  nextScreen: const BaseButton(),
+                  splashTransition: SplashTransition.slideTransition,
+                  pageTransitionType: PageTransitionType.fade,
+                  splashIconSize: 290,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-
-    super.dispose();
-  }
 }
-
-//TODO: flutter_native_splash - package for the splash screen.
-//TODO: Use the video instead for splash screen (https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwid1Kiph5L6AhX5QPEDHZxUBwcQFnoECAoQAQ&url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F69173218%2Fvideo-player-for-splash-screen-in-flutter&usg=AOvVaw0L6HP-_932cqw4l14egVeW).

@@ -7,7 +7,7 @@ import 'package:rex/components/utilities/choice_text.dart';
 import 'package:rex/components/utilities/constants.dart';
 import 'package:rex/components/screens template/salon_form_text.dart';
 import 'package:rex/components/utilities/submit.dart';
-import 'package:rex/components/header&footer/top_bar.dart';
+import 'package:rex/components/header_footer/top_bar.dart';
 import 'package:rex/components/screens template/salon_form_field.dart';
 import 'package:rex/components/utilities/floating_button.dart';
 

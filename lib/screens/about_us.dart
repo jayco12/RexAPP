@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rex/components/utilities/constants.dart';
-import 'package:rex/components/header&footer/top_bar.dart';
+import 'package:rex/components/header_footer/top_bar.dart';
 
 class AboutUs extends StatelessWidget {
 

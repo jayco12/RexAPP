@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rex/components/utilities/constants.dart';
 import 'package:rex/components/screens template/contact.dart';
-import 'package:rex/components/header&footer/top_bar.dart';
+import 'package:rex/components/header_footer/top_bar.dart';
 
 class OurContact extends StatelessWidget {
 
@@ -49,14 +49,14 @@ class OurContact extends StatelessWidget {
           Expanded(
             child: ListView(
               shrinkWrap: true,
-              children: const [
+              children: const[
                 Contact(
                     icon: Icons.phone_enabled,
                     text: '+227 8777 8777',
                     color: Colors.green),
                 Div(),
                 Contact(
-                  icon: Icons.whatsapp,
+                  icon: FontAwesomeIcons.whatsapp,
                   text: '+227 8777 8777',
                   color: Colors.green,
                 ),

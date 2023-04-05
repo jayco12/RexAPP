@@ -6,10 +6,14 @@ import 'package:rex/components/utilities/choice_text.dart';
 import 'package:rex/components/utilities/constants.dart';
 import 'package:rex/components/utilities/submit.dart';
 import 'package:rex/components/screens template/gas_form_field.dart';
-import 'package:rex/components/header&footer/top_bar.dart';
+import 'package:rex/components/header_footer/top_bar.dart';
 import 'package:rex/components/screens template/gas_form_text.dart';
 import 'package:rex/components/utilities/floating_button.dart';
 import 'package:rex/components/utilities/gaz_class.dart';
+import 'package:provider/provider.dart';
+
+import 'cart_screen/cart_data.dart';
+
 
 class GazForm extends StatefulWidget {
   const GazForm({Key? key, required this.image}) : super(key: key);
@@ -76,11 +80,11 @@ class _GazFormState extends State<GazForm> {
     for (String amount in gasPrice) {
       //print(amount);
       if (dropdownValue == gasKg[0]) {
-        var gasOne = quantite * int.parse(gasPrice[0]) ;
+        var gasOne = int.parse(gasPrice[0]) * quantite;
         print(gasOne);
         return gasOne.toString();
       } else if (dropdownValue == gasKg[1]) {
-        var gasTwo = quantite * int.parse(gasPrice[1]);
+        var gasTwo = int.parse(gasPrice[1]) * quantite;
         print(gasTwo);
         return gasTwo.toString();
       }
@@ -94,7 +98,8 @@ class _GazFormState extends State<GazForm> {
     return getPrice();
   }
 
-  int quantite = 1;
+  late int quantite = 1;
+  late String? newCart;
 
   @override
   Widget build(BuildContext context) {
@@ -181,9 +186,10 @@ class _GazFormState extends State<GazForm> {
                             ),
                             enabled: true,
                             text: '1',
-                            onChanged: (quantite) {
+                            onChanged: (context) {
                               setState(() {
-                                quantite.toString();
+                                quantite = int.parse(context);
+                                newCart = context;
                               });
                               print(quantite);
                             },
@@ -206,8 +212,12 @@ class _GazFormState extends State<GazForm> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          const Submit(
-                              margin: EdgeInsets.only(left: 19.0, right: 41.1),
+                          Submit(
+                            onPressed: () {
+                              Provider.of<CartData>(context, listen: false).addCart(newCart!);
+                              Navigator.pop(context);
+                            },
+                              margin: const EdgeInsets.only(left: 19.0, right: 41.1),
                               text: 'AJOUTER AU PANIER'),
                         ],
                       ),

@@ -6,12 +6,12 @@ import 'package:rex/components/utilities/constants.dart';
 class Submit extends StatelessWidget {
   const Submit({
     Key? key,
-    //required this.onPressed,
+    this.onPressed, //required
     required this.margin,
     required this.text,
   }) : super(key: key);
 
-  //final Function()? onPressed;
+  final void Function()? onPressed;
   final dynamic margin;
   final String text;
 
@@ -20,7 +20,7 @@ class Submit extends StatelessWidget {
     return Container(
       margin: margin,
       child: ElevatedButton(
-        onPressed: (){},
+        onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(
               RexColors.ajouterAuPanier),

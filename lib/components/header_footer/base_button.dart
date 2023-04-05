@@ -1,25 +1,27 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:rex/components/header&footer/top_bar.dart';
+import 'package:rex/components/header_footer/top_bar.dart';
 import 'package:rex/components/utilities/rex_colors.dart';
-import 'package:rex/screens/cart/start_shopping.dart';
 // import '../../routes/app_router.gr.dart';
 import '../../screens/home_page.dart';
 import '../../screens/user_info.dart';
-import '../../screens/cart/cart_screen2.dart';
+import '../../screens/cart_screen/start_shopping.dart';
+import '../../screens/cart_screen/cart_screen2.dart';
+import '../screens template/base.dart';
 
 class BaseButton extends StatefulWidget {
   const BaseButton({Key? key}) : super(key: key);
 
   @override
-  _BaseButtonState createState() => _BaseButtonState();
+  State<BaseButton> createState() => _BaseButtonState();
 }
 
 class _BaseButtonState extends State<BaseButton> {
   int _selectedIndex = 0;
+
   final List _widgetOptions = [
     const HomePage(),
-    //const StartShopping(),
+    // const StartShopping(),
     const CartScreen2(),
     const UserInfo(),
   ];
@@ -93,33 +95,6 @@ class _BaseButtonState extends State<BaseButton> {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class Base extends StatelessWidget {
-  const Base(
-      {Key? key,
-      required this.margin,
-      required this.image,
-      required this.onTap})
-      : super(key: key);
-
-  final String image;
-  final void Function()? onTap;
-  final EdgeInsetsGeometry margin;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: margin,
-      child: InkResponse(
-        onTap: onTap,
-        child: ImageIcon(
-          AssetImage(image),
-          size: 30.0,
         ),
       ),
     );
