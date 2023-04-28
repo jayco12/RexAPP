@@ -4,11 +4,12 @@ import 'package:rex/screens/cart_screen/cart_tile.dart';
 
 import '../../components/utilities/constants.dart';
 import '../../components/utilities/submit.dart';
+import '../gaz_form.dart';
 import 'cart_data.dart';
 import 'cart_list.dart';
 
 class CartScreen2 extends StatefulWidget {
-  const CartScreen2({Key? key}) : super(key: key);
+  const CartScreen2({super.key});
 
   @override
   State<CartScreen2> createState() => _CartScreen2State();
@@ -18,24 +19,29 @@ class _CartScreen2State extends State<CartScreen2> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const SizedBox(
             height: 50.0,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 'PANIER',
                 style: kLeadText,
               ),
-              Icon(Icons.delete),
+              IconButton(
+                onPressed: () {
+                  // setState(() {
+                  //   datalist.remove(item);
+                  // });
+                },
+                icon: const Icon(Icons.delete),
+              ),
             ],
           ),
-          Text(
+          const Text(
             '2 élément', //${Provider.of<CartData>(context).cartCount}
             style: kCart1,
           ),
@@ -43,58 +49,68 @@ class _CartScreen2State extends State<CartScreen2> {
             height: 15.0,
           ),
           Expanded(
-            child: ListView(
-              children: [
-                const CartTile(),
-                const CartTile(),
-                const CartTile(),
-                const CartTile(),
-                // Container(
-                //   padding: const EdgeInsets.symmetric(
-                //     horizontal: 20.0,
-                //   ),
-                //   width: double.infinity,
-                //   decoration: const BoxDecoration(
-                //     color: Colors.white,
-                //     borderRadius: BorderRadius.only(
-                //       topLeft: Radius.circular(20.0),
-                //       topRight: Radius.circular(20.0),
-                //     ),
-                //   ),
-                //   child: const CartList(),
-                // ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                Row(
-                  children: const [
-                    Text(
-                      'TOTAL',
-                      style: kCart4,
+            child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: datalist.length,
+                itemBuilder: (context, index) {
+                  var item = datalist[index];
+
+                  return Card(
+                    elevation: 6.0,
+                    child: ListTile(
+                      leading: SizedBox(
+                        height: 70,
+                        width: 70,
+                        child: Image.asset(
+                          item.image,
+                          height: 50,
+                          width: 50,
+                        ),
+                      ),
+                      title: Text(item.size),
+                      subtitle: Text('\n\nquantity:${item.quantity}'),
+                      trailing: GestureDetector(
+                          child: const Icon(
+                            Icons.remove_circle,
+                            color: Colors.red,
+                          ),
+                          onTap: () {
+                            setState(() {
+                              datalist.remove(item);
+                            });
+                          }),
                     ),
-                    SizedBox(
-                      width: 217.0,
-                    ),
-                    Text(
-                      '15,000 CFA',
-                      style: kCart4,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 42.5,
-                ),
-                const Submit(
-                    margin: EdgeInsets.only(left: 235.0, right: 10.0),
-                    text: 'COMMANDE'),
-                const SizedBox(
-                  height: 50.0,
-                ),
-              ],
-            ),
+                  );
+                }),
           ),
-        ],
-      ),
-    );
+          const SizedBox(
+            height: 10.0,
+          ),
+          Row(
+            children: const [
+              Text(
+                'TOTAL',
+                style: kCart4,
+              ),
+              SizedBox(
+                width: 150.0,
+              ),
+              Text(
+                '15,000 CFA',
+                style: kCart4,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 42.5,
+          ),
+          const Submit(
+              margin: EdgeInsets.only(left: 205.0, right: 10.0),
+              text: 'COMMANDE'),
+          const SizedBox(
+            height: 50.0,
+          )
+        ]));
   }
 }

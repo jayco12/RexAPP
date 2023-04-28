@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar(
-      {Key? key, this.phonenavigator, this.infonavigator, this.aboutnavigator})
+      {Key? key,
+      required this.phonenavigator,
+      required this.infonavigator,
+      required this.aboutnavigator})
       : super(key: key);
 
-  final Widget? phonenavigator;
-  final Widget? infonavigator;
-  final Widget? aboutnavigator;
+  final Widget phonenavigator;
+  final Widget infonavigator;
+  final Widget aboutnavigator;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +43,7 @@ class TopBar extends StatelessWidget {
             const SizedBox(
               width: 145.0,
             ),
-            phonenavigator!,
+            phonenavigator,
             // InkResponse(
             //   onTap: () {
             //     Navigator.pushNamed(context, OurContact.id);
@@ -48,7 +51,7 @@ class TopBar extends StatelessWidget {
             //   child: const Icon(Icons.phone),
             // ),
             const SizedBox(width: 20.0),
-            infonavigator!,
+            infonavigator,
             // InkResponse(
             //   onTap: () {
             //     //widget.infonavigator;
@@ -56,7 +59,7 @@ class TopBar extends StatelessWidget {
             //   child: const Icon(Icons.info_outline_rounded),
             // ),
             const SizedBox(width: 20.0),
-            aboutnavigator!,
+            aboutnavigator,
             // InkResponse(
             //   onTap: () {
             //     Navigator.pushNamed(context, AboutUs.id);
@@ -70,4 +73,3 @@ class TopBar extends StatelessWidget {
     );
   }
 }
-

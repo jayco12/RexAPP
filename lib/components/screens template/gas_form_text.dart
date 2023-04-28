@@ -5,12 +5,14 @@ import 'package:rex/components/utilities/constants.dart';
 class GasFormText extends StatelessWidget {
   const GasFormText({
     Key? key,
+    this.controller,
     required this.margin,
     required this.text,
   }) : super(key: key);
 
   final dynamic margin;
   final String text;
+  final controller;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,6 +20,7 @@ class GasFormText extends StatelessWidget {
       child: Text(
         text,
         style: GoogleFonts.poppins(
+          fontSize: 15,
           textStyle: kGasFormStylePoppins,
         ),
       ),

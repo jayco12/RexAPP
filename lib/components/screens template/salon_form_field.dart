@@ -10,7 +10,7 @@ class SalonFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 53.0, right: 128.0),
+      margin: const EdgeInsets.only(left: 33.0, right: 128.0),
       child: CupertinoTextField(
         style: GoogleFonts.roboto(
           textStyle: kFormStyleRoboto,

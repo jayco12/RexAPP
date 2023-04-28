@@ -2,7 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:rex/components/header_footer/top_bar.dart';
 import 'package:rex/components/utilities/rex_colors.dart';
+import 'package:rex/screens/gaz_page.dart';
 // import '../../routes/app_router.gr.dart';
+import '../../screens/gaz_form.dart';
 import '../../screens/home_page.dart';
 import '../../screens/user_info.dart';
 import '../../screens/cart_screen/start_shopping.dart';
@@ -16,14 +18,16 @@ class BaseButton extends StatefulWidget {
   State<BaseButton> createState() => _BaseButtonState();
 }
 
+List<Gaz> _cartList = <Gaz>[];
+
 class _BaseButtonState extends State<BaseButton> {
   int _selectedIndex = 0;
 
   final List _widgetOptions = [
     const HomePage(),
-    // const StartShopping(),
-    const CartScreen2(),
+    CartScreen2(),
     const UserInfo(),
+    GazPage()
   ];
 
   void _onItemTap(int index) {

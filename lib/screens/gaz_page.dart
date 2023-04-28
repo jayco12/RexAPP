@@ -8,7 +8,6 @@ import 'package:rex/components/header_footer/top_bar.dart';
 import 'package:rex/components/utilities/floating_button.dart';
 
 class GazPage extends StatelessWidget {
-
   const GazPage({Key? key}) : super(key: key);
 
   @override
@@ -17,7 +16,7 @@ class GazPage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size(double.infinity, 120),
         child: TopBar(
-          phonenavigator:InkResponse(
+          phonenavigator: InkResponse(
             onTap: () {
               context.router.pushNamed('/our-contact');
             },
@@ -61,7 +60,7 @@ class GazPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    const GazForm(image: 'images/SogaGaz.png'),
+                                    GazForm(image: 'images/SogaGaz.png'),
                               ),
                             );
                           },
@@ -73,7 +72,7 @@ class GazPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    const GazForm(image: 'images/NiyyaGaz.png'),
+                                    GazForm(image: 'images/NiyyaGaz.png'),
                               ),
                             );
                           },
@@ -85,7 +84,7 @@ class GazPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    const GazForm(image: 'images/OribaGaz.png'),
+                                    GazForm(image: 'images/OribaGaz.png'),
                               ),
                             );
                           },
@@ -105,7 +104,7 @@ class GazPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    const GazForm(image: 'images/NigerGaz.png'),
+                                    GazForm(image: 'images/NigerGaz.png'),
                               ),
                             );
                           },
@@ -116,8 +115,8 @@ class GazPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const GazForm(
-                                    image: 'images/DangaraGaz.png'),
+                                builder: (context) =>
+                                    GazForm(image: 'images/DangaraGaz.png'),
                               ),
                             );
                           },
@@ -128,8 +127,8 @@ class GazPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const GazForm(
-                                    image: 'images/SonihyGaz.png'),
+                                builder: (context) =>
+                                    GazForm(image: 'images/SonihyGaz.png'),
                               ),
                             );
                           },
@@ -149,7 +148,7 @@ class GazPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    const GazForm(image: 'images/AHKGaz.png'),
+                                    GazForm(image: 'images/AHKGaz.png'),
                               ),
                             );
                           },
@@ -161,7 +160,7 @@ class GazPage extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    const GazForm(image: 'images/GaniGaz.png'),
+                                    GazForm(image: 'images/GaniGaz.png'),
                               ),
                             );
                           },
@@ -172,8 +171,8 @@ class GazPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const GazForm(
-                                    image: 'images/TenereGaz.png'),
+                                builder: (context) =>
+                                    GazForm(image: 'images/TenereGaz.png'),
                               ),
                             );
                           },
@@ -192,8 +191,8 @@ class GazPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const GazForm(
-                                    image: 'images/ZamaniGaz.png'),
+                                builder: (context) =>
+                                    GazForm(image: 'images/ZamaniGaz.png'),
                               ),
                             );
                           },
@@ -207,8 +206,8 @@ class GazPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const GazForm(
-                                    image: 'images/LesAutres.png'),
+                                builder: (context) =>
+                                    GazForm(image: 'images/LesAutres.png'),
                               ),
                             );
                           },

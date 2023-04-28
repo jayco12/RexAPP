@@ -11,7 +11,7 @@ const kGasFormStylePoppins = TextStyle(
 const kFormStyleRoboto = TextStyle(
   fontFamily: 'fonts/Roboto-Regular.ttf',
   fontWeight: FontWeight.w500,
-  color: RexColors.orderTextColor,
+  color: Color.fromARGB(255, 11, 11, 11),
   fontSize: 15.0,
 );
 
@@ -29,7 +29,7 @@ const kSubHeadings = TextStyle(
   fontSize: 16.0,
 );
 
-const kLeadText =  TextStyle(
+const kLeadText = TextStyle(
   fontFamily: 'fonts/Poppins-Medium.ttf',
   fontWeight: FontWeight.w500,
   color: RexColors.textColor,

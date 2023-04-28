@@ -22,10 +22,9 @@ class Submit extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-              RexColors.ajouterAuPanier),
-          shadowColor: MaterialStateProperty.all(
-              RexColors.ajouterAuPanierShadow),
+          backgroundColor: MaterialStateProperty.all(RexColors.ajouterAuPanier),
+          shadowColor:
+              MaterialStateProperty.all(RexColors.ajouterAuPanierShadow),
           elevation: MaterialStateProperty.all(12.0),
           shape: MaterialStateProperty.all(
             const RoundedRectangleBorder(
@@ -35,23 +34,25 @@ class Submit extends StatelessWidget {
             ),
           ),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              text,
-              style: GoogleFonts.poppins(
-                textStyle: kButton,
+        child: SingleChildScrollView(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                text,
+                style: GoogleFonts.poppins(
+                  textStyle: kButton,
+                ),
               ),
-            ),
-            const SizedBox(
-              width: 8.78,
-            ),
-            const Icon(
-              Icons.arrow_forward_rounded,
-              size: 10.09,
-            ),
-          ],
+              const SizedBox(
+                width: 4.78,
+              ),
+              const Icon(
+                Icons.arrow_forward_rounded,
+                size: 7.09,
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -13,12 +13,14 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i14;
 import 'package:flutter/material.dart' as _i15;
+import 'package:flutter/widgets.dart';
 
 import '../components/header_footer/base_button.dart' as _i2;
 import '../screens/about_us.dart' as _i5;
 import '../screens/cart_screen/cart_screen2.dart' as _i7;
 import '../screens/cart_screen/cart_tile.dart' as _i6;
 import '../screens/cart_screen/start_shopping.dart' as _i8;
+import '../screens/gaz_form.dart';
 import '../screens/gaz_page.dart' as _i9;
 import '../screens/home_page.dart' as _i3;
 import '../screens/our_contact.dart' as _i4;
@@ -68,12 +70,6 @@ class AppRouter extends _i14.RootStackRouter {
       return _i14.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i6.CartTile(),
-      );
-    },
-    CartScreen2.name: (routeData) {
-      return _i14.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const _i7.CartScreen2(),
       );
     },
     StartShopping.name: (routeData) {

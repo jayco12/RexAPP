@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../utilities/constants.dart';
+
+import 'components/utilities/constants.dart';
 
 class GazFormField extends StatelessWidget {
   const GazFormField({
@@ -30,12 +31,6 @@ class GazFormField extends StatelessWidget {
         style: GoogleFonts.roboto(
           color: Colors.black,
           textStyle: kFormStyleRoboto,
-          height: .08,
-        ),
-        decoration: const InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-          ),
         ),
         onChanged: onChanged,
       ),

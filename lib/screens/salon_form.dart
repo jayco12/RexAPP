@@ -78,7 +78,7 @@ class _SalonFormState extends State<SalonForm> {
                 ),
                 const SalonFormText(text: 'Lieu'),
                 Container(
-                  margin: const EdgeInsets.only(left: 53.0, right: 233.0),
+                  margin: const EdgeInsets.only(left: 33.0, right: 233.0),
                   child: DropdownButton(
                     elevation: 8,
                     value: dropdownvalue,
@@ -107,7 +107,7 @@ class _SalonFormState extends State<SalonForm> {
                 ),
                 const SalonFormText(text: 'Prix'),
                 Container(
-                  margin: const EdgeInsets.only(left: 53.0, right: 221.0),
+                  margin: const EdgeInsets.only(left: 33.0, right: 221.0),
                   child: CupertinoTextField(
                     readOnly: true,
                     placeholder: '2,500',
@@ -119,9 +119,26 @@ class _SalonFormState extends State<SalonForm> {
                 const SizedBox(
                   height: 14.0,
                 ),
-                const Submit(
-                  margin: EdgeInsets.only(left: 53.0, right: 206.0),
+                Submit(
+                  margin: EdgeInsets.only(left: 33.0, right: 206.0),
                   text: 'SAUVEGARDER',
+                  onPressed: () async {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          Future.delayed(const Duration(seconds: 1), () {
+                            Navigator.of(context).pop(true);
+                          });
+                          return const AlertDialog(
+                            backgroundColor: Colors.transparent,
+                            icon: Icon(
+                              Icons.check_circle_rounded,
+                              color: Colors.green,
+                              size: 100,
+                            ),
+                          );
+                        });
+                  },
                 ),
               ],
             ),
