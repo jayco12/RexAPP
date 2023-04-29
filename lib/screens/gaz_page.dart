@@ -8,13 +8,19 @@ import 'package:rex/components/header_footer/top_bar.dart';
 import 'package:rex/components/utilities/floating_button.dart';
 
 class GazPage extends StatelessWidget {
-  var FromMain = false;
-  GazPage({Key? key, fromMain}) : super(key: key);
+  static const routeName = '/gaz.page';
+  final bool addAppbar;
+  const GazPage({
+    Key? key,
+    required this.addAppbar ,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:FromMain?null: buildAppBar(context),
+      appBar: addAppbar
+          ? buildAppBar(context)
+          : buildAppBar(context, emptyAppBar: true),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -27,7 +33,7 @@ class GazPage extends StatelessWidget {
           const ChoiceText(),
           Expanded(
             child: ListView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               children: [
                 Column(
                   children: [

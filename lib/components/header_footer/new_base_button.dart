@@ -47,7 +47,9 @@ class _BaseBarState extends State<BaseBar> {
     const HomePage(),
     const CartScreen2(),
     const UserInfo(),
-     GazPage()
+    const GazPage(
+      addAppbar: false,
+    )
   ];
   @override
   Widget build(BuildContext context) {
