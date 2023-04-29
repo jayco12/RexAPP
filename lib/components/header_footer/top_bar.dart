@@ -41,7 +41,7 @@ class TopBar extends StatelessWidget {
               height: 114.56,
             ),
             const SizedBox(
-              width: 145.0,
+              width: 140.0,
             ),
             phonenavigator,
             // InkResponse(
@@ -66,7 +66,7 @@ class TopBar extends StatelessWidget {
             //   },
             //   child: const Icon(Icons.group_rounded),
             // ),
-            const SizedBox(width: 20.0),
+            const SizedBox(width: 5.0),
           ],
         ),
       ],
