@@ -162,7 +162,7 @@ class _GazFormState extends State<GazForm> {
                 elevation: 4.0,
                 child: Container(
                   decoration: kGasFormDecoration,
-                  width: 204.0,
+                  width: 200.0,
                   height: 334.0,
                   child: ListView(
                     shrinkWrap: true,
@@ -184,13 +184,13 @@ class _GazFormState extends State<GazForm> {
                           ),
                           text: 'Quantite'),
                       GazFormField(
+                        controller: qualityController,
                         onChanged: (_) {
                           setState(() {
-                            quantite = int.parse(_);
+                            quantite = int.parse(qualityController.text);
                           });
                           print(quantite);
                         },
-                        controller: qualityController,
                         margin: const EdgeInsets.only(
                           left: 20.0,
                           right: 80.0,

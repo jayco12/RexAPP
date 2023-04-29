@@ -22,53 +22,58 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        MJImageSlider(
-          widgets: [
-            ...images.map((e) => Image(image: AssetImage(e))).toList(),
-          ],
-          options: MjOptions(
-            height: 188.0,
-            width: 250,
-            viewportFraction: 1.0,
-            initialPage: 0,
-            enableInfiniteScroll: true,
-            autoPlayInterval: const Duration(seconds: 10),
-            autoPlayAnimationDuration: const Duration(seconds: 5),
-            autoPlayCurve: Curves.easeOut,
-            onPageChanged: (_) {},
-            scrollDirection: Axis.horizontal,
+    return Scaffold(
+      body: ListView(
+        children: [
+          MJImageSlider(
+            widgets: [
+              ...images.map((e) => Image(image: AssetImage(e))).toList(),
+            ],
+            options: MjOptions(
+              height: 188.0,
+              width: 250,
+              viewportFraction: 1.0,
+              initialPage: 0,
+              enableInfiniteScroll: true,
+              autoPlayInterval: const Duration(seconds: 10),
+              autoPlayAnimationDuration: const Duration(seconds: 5),
+              autoPlayCurve: Curves.easeOut,
+              onPageChanged: (_) {},
+              scrollDirection: Axis.horizontal,
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 30.0,
-        ),
-        const ChoiceText(),
-        const SizedBox(height: 20.0),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Businesses(
-              image: Image.asset('images/Gaz.png'),
-              service: 'GAZ',
-              onTap: () {
-                Navigator.of(context, rootNavigator: false).push(
-                    MaterialPageRoute(
-                        builder: (context) => GazPage(), maintainState: true));
-              },
-            ),
-            const SizedBox(width: 30.0),
-            Businesses(
-              image: Image.asset('images/Salon.png'),
-              service: 'SALON',
-              onTap: () {
-                context.router.pushNamed('/salon-page');
-              },
-            ),
-          ],
-        ),
-      ],
+          const SizedBox(
+            height: 30.0,
+          ),
+          const ChoiceText(),
+          const SizedBox(height: 20.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Businesses(
+                image: Image.asset('images/Gaz.png'),
+                service: 'GAZ',
+                onTap: () {
+                  Navigator.of(context, rootNavigator: false)
+                      .push(MaterialPageRoute(
+                          builder: (context) => GazPage(
+                                fromMain: true,
+                              ),
+                          maintainState: true));
+                },
+              ),
+              const SizedBox(width: 30.0),
+              Businesses(
+                image: Image.asset('images/Salon.png'),
+                service: 'SALON',
+                onTap: () {
+                  context.router.pushNamed('/salon-page');
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
