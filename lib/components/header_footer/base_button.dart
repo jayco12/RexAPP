@@ -1,15 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:rex/components/header_footer/top_bar.dart';
-import 'package:rex/components/utilities/rex_colors.dart';
 import 'package:rex/screens/gaz_page.dart';
-// import '../../routes/app_router.gr.dart';
-import '../../screens/gaz_form.dart';
 import '../../screens/home_page.dart';
 import '../../screens/user_info.dart';
-import '../../screens/cart_screen/start_shopping.dart';
 import '../../screens/cart_screen/cart_screen2.dart';
-import '../screens template/base.dart';
 
 class BaseButton extends StatefulWidget {
   const BaseButton({Key? key}) : super(key: key);
@@ -17,8 +12,6 @@ class BaseButton extends StatefulWidget {
   @override
   State<BaseButton> createState() => _BaseButtonState();
 }
-
-List<Gaz> _cartList = <Gaz>[];
 
 class _BaseButtonState extends State<BaseButton> {
   int _selectedIndex = 0;
@@ -62,47 +55,26 @@ class _BaseButtonState extends State<BaseButton> {
         ),
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.only(bottom: 20.0),
-        width: double.infinity,
-        height: 40,
-        decoration: const BoxDecoration(
-          border: Border(
-            top: BorderSide(color: RexColors.divider, width: 3.0),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 14.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Base(
-                margin: const EdgeInsets.only(left: 59.0, right: 71.1),
-                image: 'images/homeicon.png',
-                onTap: () {
-                  _onItemTap(0);
-                },
-              ),
-              Base(
-                margin: EdgeInsets.zero,
-                image: 'images/carticon.png',
-                onTap: () {
-                  _onItemTap(1);
-                },
-              ),
-              Base(
-                margin: const EdgeInsets.only(left: 71.1, right: 59.0),
-                image: 'images/usericon.png',
-                onTap: () {
-                  _onItemTap(2);
-                },
-              ),
-            ],
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_sharp),
+            label: 'Cart',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'information',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTap,
       ),
     );
   }
 }
-
+     
 //TODO: Fix the bottom Navigation to work as it should.

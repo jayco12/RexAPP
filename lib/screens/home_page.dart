@@ -53,9 +53,7 @@ class _HomePageState extends State<HomePage> {
               image: Image.asset('images/Gaz.png'),
               service: 'GAZ',
               onTap: () {
-                Navigator.of(context, rootNavigator: false).push(
-                    MaterialPageRoute(
-                        builder: (context) => GazPage(), maintainState: true));
+                context.router.pushNamed('/gaz-page');
               },
             ),
             const SizedBox(width: 30.0),

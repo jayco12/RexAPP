@@ -16,6 +16,7 @@ class CartScreen2 extends StatefulWidget {
 }
 
 class _CartScreen2State extends State<CartScreen2> {
+  var item = datalist;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,9 +34,9 @@ class _CartScreen2State extends State<CartScreen2> {
               ),
               IconButton(
                 onPressed: () {
-                  // setState(() {
-                  //   datalist.remove(item);
-                  // });
+                  setState(() {
+                    datalist.remove(item);
+                  });
                 },
                 icon: const Icon(Icons.delete),
               ),
@@ -55,33 +56,40 @@ class _CartScreen2State extends State<CartScreen2> {
                 itemCount: datalist.length,
                 itemBuilder: (context, index) {
                   var item = datalist[index];
-
-                  return Card(
-                    elevation: 6.0,
-                    child: ListTile(
-                      leading: SizedBox(
-                        height: 70,
-                        width: 70,
-                        child: Image.asset(
-                          item.image,
-                          height: 50,
-                          width: 50,
-                        ),
-                      ),
-                      title: Text(item.size),
-                      subtitle: Text('\n\nquantity:${item.quantity}'),
-                      trailing: GestureDetector(
-                          child: const Icon(
-                            Icons.remove_circle,
-                            color: Colors.red,
+                  if (datalist.isNotEmpty) {
+                    return Card(
+                      elevation: 6.0,
+                      child: Row(children: [
+                        SizedBox(
+                          height: 70,
+                          width: 70,
+                          child: Card(
+                            child: Image.asset(
+                              item.image,
+                              height: 50,
+                              width: 50,
+                            ),
                           ),
-                          onTap: () {
-                            setState(() {
-                              datalist.remove(item);
-                            });
-                          }),
-                    ),
-                  );
+                        ),
+                        Column(children: [
+                          Text('\n\nTalle:${item.size}'),
+                          Text('\n\nquantity:${item.quantity}'),
+                        ]),
+                        GestureDetector(
+                            child: const Icon(
+                              Icons.remove_circle,
+                              color: Colors.red,
+                            ),
+                            onTap: () {
+                              setState(() {
+                                datalist.remove(item);
+                              });
+                            }),
+                      ]),
+                    );
+                  } else {
+                    return CartTile();
+                  }
                 }),
           ),
           const SizedBox(
