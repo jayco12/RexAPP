@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rex/screens/cart_screen/cart_tile.dart';
@@ -33,9 +34,32 @@ class _CartScreen2State extends State<CartScreen2> {
               ),
               IconButton(
                 onPressed: () {
-                  // setState(() {
-                  //   datalist.remove(item);
-                  // });
+                  showDialog(
+                      context: context,
+                      builder: (_) => AlertDialog(
+                            title: const Text('Warning'),
+                            content: const Text('Clear Cart'),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    context.router.pop();
+                                  },
+                                  child: const Text(
+                                    'cancel',
+                                    style: TextStyle(color: Colors.red),
+                                  )),
+                              TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      datalist.clear();
+                                    });
+                                    context.router.pop();
+                                  },
+                                  child: const Text(
+                                    'delete',
+                                  ))
+                            ],
+                          ));
                 },
                 icon: const Icon(Icons.delete),
               ),
