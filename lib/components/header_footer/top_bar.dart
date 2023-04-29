@@ -32,40 +32,24 @@ class TopBar extends StatelessWidget {
         ],
       ),
       backgroundColor: Colors.transparent,
+      leading: Padding(
+        padding: const EdgeInsets.only(left: 20.0),
+        child: Image.asset(
+          'images/rex white logo.png',
+          width: 81,
+          height: 114.56,
+        ),
+      ),
       actions: [
         Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Image.asset(
-              'images/rex white logo.png',
-              width: 81,
-              height: 114.56,
-            ),
-            const SizedBox(
-              width: 140.0,
-            ),
             phonenavigator,
-            // InkResponse(
-            //   onTap: () {
-            //     Navigator.pushNamed(context, OurContact.id);
-            //   },
-            //   child: const Icon(Icons.phone),
-            // ),
             const SizedBox(width: 20.0),
             infonavigator,
-            // InkResponse(
-            //   onTap: () {
-            //     //widget.infonavigator;
-            //   },
-            //   child: const Icon(Icons.info_outline_rounded),
-            // ),
             const SizedBox(width: 20.0),
             aboutnavigator,
-            // InkResponse(
-            //   onTap: () {
-            //     Navigator.pushNamed(context, AboutUs.id);
-            //   },
-            //   child: const Icon(Icons.group_rounded),
-            // ),
             const SizedBox(width: 5.0),
           ],
         ),
