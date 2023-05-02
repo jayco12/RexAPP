@@ -81,7 +81,9 @@ class AppRouter extends _i14.RootStackRouter {
     GazRoute.name: (routeData) {
       return _i14.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i9.GazPage(),
+        child: _i9.GazPage(
+          addAppbar: true,
+        ),
       );
     },
     SalonRoute.name: (routeData) {

@@ -1,6 +1,5 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:rex/screens/cart_screen/cart_tile.dart';
 
 import '../../components/utilities/constants.dart';
 import '../../components/utilities/submit.dart';
@@ -16,7 +15,6 @@ class CartScreen2 extends StatefulWidget {
 }
 
 class _CartScreen2State extends State<CartScreen2> {
-  var item = datalist;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,9 +32,32 @@ class _CartScreen2State extends State<CartScreen2> {
               ),
               IconButton(
                 onPressed: () {
-                  setState(() {
-                    datalist.remove(item);
-                  });
+                  showDialog(
+                      context: context,
+                      builder: (_) => AlertDialog(
+                            title: const Text('Warning'),
+                            content: const Text('Clear Cart'),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    context.router.pop();
+                                  },
+                                  child: const Text(
+                                    'cancel',
+                                    style: TextStyle(color: Colors.red),
+                                  )),
+                              TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      datalist.clear();
+                                    });
+                                    context.router.pop();
+                                  },
+                                  child: const Text(
+                                    'delete',
+                                  ))
+                            ],
+                          ));
                 },
                 icon: const Icon(Icons.delete),
               ),
@@ -56,40 +77,33 @@ class _CartScreen2State extends State<CartScreen2> {
                 itemCount: datalist.length,
                 itemBuilder: (context, index) {
                   var item = datalist[index];
-                  if (datalist.isNotEmpty) {
-                    return Card(
-                      elevation: 6.0,
-                      child: Row(children: [
-                        SizedBox(
-                          height: 70,
-                          width: 70,
-                          child: Card(
-                            child: Image.asset(
-                              item.image,
-                              height: 50,
-                              width: 50,
-                            ),
-                          ),
+
+                  return Card(
+                    elevation: 6.0,
+                    child: ListTile(
+                      leading: SizedBox(
+                        height: 70,
+                        width: 70,
+                        child: Image.asset(
+                          item.image,
+                          height: 50,
+                          width: 50,
                         ),
-                        Column(children: [
-                          Text('\n\nTalle:${item.size}'),
-                          Text('\n\nquantity:${item.quantity}'),
-                        ]),
-                        GestureDetector(
-                            child: const Icon(
-                              Icons.remove_circle,
-                              color: Colors.red,
-                            ),
-                            onTap: () {
-                              setState(() {
-                                datalist.remove(item);
-                              });
-                            }),
-                      ]),
-                    );
-                  } else {
-                    return CartTile();
-                  }
+                      ),
+                      title: Text(item.size),
+                      subtitle: Text('\n\nquantity:${item.quantity}'),
+                      trailing: GestureDetector(
+                          child: const Icon(
+                            Icons.remove_circle,
+                            color: Colors.red,
+                          ),
+                          onTap: () {
+                            setState(() {
+                              datalist.remove(item);
+                            });
+                          }),
+                    ),
+                  );
                 }),
           ),
           const SizedBox(

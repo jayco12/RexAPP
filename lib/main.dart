@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:rex/routes/app_router.gr.dart';
-import 'package:rex/screens/cart_screen/cart_list.dart';
-// import 'package:rex/screens/splash_view.dart';
 
-void main() {
+import 'package:rex/routes/app_router.gr.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     Rex(),
   );
@@ -16,18 +15,12 @@ class Rex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (_) => CartData(),
-          )
-        ],
-        child: MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          title: 'Rex',
-          routerDelegate: _appRouter.delegate(),
-          routeInformationParser: _appRouter.defaultRouteParser(),
-        ));
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      title: 'Rex',
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+    );
 
     // MaterialApp(
     //   debugShowCheckedModeBanner: false,

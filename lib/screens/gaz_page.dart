@@ -8,33 +8,19 @@ import 'package:rex/components/header_footer/top_bar.dart';
 import 'package:rex/components/utilities/floating_button.dart';
 
 class GazPage extends StatelessWidget {
-  const GazPage({Key? key}) : super(key: key);
+  static const routeName = '/gaz.page';
+  final bool addAppbar;
+  const GazPage({
+    Key? key,
+    required this.addAppbar,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size(double.infinity, 120),
-        child: TopBar(
-          phonenavigator: InkResponse(
-            onTap: () {
-              context.router.pushNamed('/our-contact');
-            },
-            child: const Icon(Icons.phone),
-          ),
-          infonavigator: InkResponse(
-            onTap: () {
-              //widget.infonavigator;
-            },
-            child: const Icon(Icons.info_outline_rounded),
-          ),
-          aboutnavigator: InkResponse(
-              onTap: () {
-                context.router.pushNamed('/about-us');
-              },
-              child: const Icon(Icons.group_rounded)),
-        ),
-      ),
+      appBar: addAppbar
+          ? buildAppBar(context)
+          : buildAppBar(context, emptyAppBar: true),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -47,6 +33,7 @@ class GazPage extends StatelessWidget {
           const ChoiceText(),
           Expanded(
             child: ListView(
+              physics: const BouncingScrollPhysics(),
               children: [
                 Column(
                   children: [
@@ -221,8 +208,9 @@ class GazPage extends StatelessWidget {
             ),
           ),
         ],
+
+        //bottomNavigationBar: BaseButton(),
       ),
-      //bottomNavigationBar: BaseButton(),
     );
   }
 }
