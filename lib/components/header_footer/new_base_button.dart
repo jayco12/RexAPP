@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rex/components/header_footer/base_button.dart';
-
 import '../../screens/home_page.dart';
 import '../../screens/user_info.dart';
+import '../../screens/cart_screen/start_shopping.dart';
 import '../../screens/cart_screen/cart_screen2.dart';
 
 class BaseBar extends StatefulWidget {
@@ -21,7 +21,6 @@ class BaseBar extends StatefulWidget {
 class _BaseBarState extends State<BaseBar> {
   dynamic argumentData = Get.arguments;
 
-  @override
   void initState() {
     if (argumentData == null) {
       print('null');
@@ -37,7 +36,7 @@ class _BaseBarState extends State<BaseBar> {
   int selectedIndex = 0;
   final widgetOptions = [
     const HomePage(),
-    const CartScreen2(),
+    CartScreen2(),
     const UserInfo(),
   ];
   @override

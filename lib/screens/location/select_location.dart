@@ -2,18 +2,38 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rex/components/utilities/submit.dart';
-
-import '../components/header_footer/top_bar.dart';
-import '../components/utilities/constants.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import '../../components/header_footer/top_bar.dart';
+import '../../components/utilities/constants.dart';
+import 'locations.dart' as locations;
 
 class SelectLocation extends StatefulWidget {
-  const SelectLocation({Key? key}) : super(key: key);
+  SelectLocation({Key? key}) : super(key: key);
 
   @override
   State<SelectLocation> createState() => _SelectLocationState();
 }
 
 class _SelectLocationState extends State<SelectLocation> {
+  final Map<String, Marker> _markers = {};
+  Future<void> _onMapCreated(GoogleMapController controller) async {
+    final googleOffices = await locations.getGoogleOffices();
+    setState(() {
+      _markers.clear();
+      for (final office in googleOffices.offices) {
+        final marker = Marker(
+          markerId: MarkerId(office.name),
+          position: LatLng(office.lat, office.lng),
+          infoWindow: InfoWindow(
+            title: office.name,
+            snippet: office.address,
+          ),
+        );
+        _markers[office.name] = marker;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,11 +64,11 @@ class _SelectLocationState extends State<SelectLocation> {
         children: [
           Expanded(
             child: ListView(
-              children: const [
-                SizedBox(
+              children: [
+                const SizedBox(
                   height: 24.0,
                 ),
-                Center(
+                const Center(
                   child: SizedBox(
                     width: 300.0,
                     height: 30.0,
@@ -58,22 +78,25 @@ class _SelectLocationState extends State<SelectLocation> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 12.0,
                 ),
-                Placeholder(
-                  color: Colors.green,
-                  fallbackHeight: 414.0,
-                  fallbackWidth: 320.0,
+                GoogleMap(
+                  onMapCreated: _onMapCreated,
+                  initialCameraPosition: const CameraPosition(
+                    target: LatLng(0, 0),
+                    zoom: 2,
+                  ),
+                  markers: _markers.values.toSet(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 96.0,
                 ),
-                Submit(
+                const Submit(
                   margin: EdgeInsets.only(left: 116.0, right: 116.0),
                   text: 'AJOUTEZ L\'ADRESSE',
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30.0,
                 )
               ],

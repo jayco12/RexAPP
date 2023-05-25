@@ -14,19 +14,22 @@ class _BackArrowState extends State<BackArrow> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 36.77,),
+      margin: const EdgeInsets.only(
+        left: 36.77,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkResponse(
             onTap: () {
-              setState(() {
-                context.router.pop();
-              });
+              Navigator.pop(context);
             },
             child: const FaIcon(
-              FontAwesomeIcons.leftLong, color: RexColors.textColor, size: 24.0,),
+              FontAwesomeIcons.leftLong,
+              color: RexColors.textColor,
+              size: 24.0,
+            ),
           ),
         ],
       ),

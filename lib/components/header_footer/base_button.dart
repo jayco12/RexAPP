@@ -5,16 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:rex/components/header_footer/new_base_button.dart';
 import 'package:rex/components/header_footer/top_bar.dart';
 
-import '../../screens/gaz_form.dart';
-
 class BaseButton extends StatefulWidget {
   const BaseButton({Key? key}) : super(key: key);
 
   @override
   State<BaseButton> createState() => _BaseButtonState();
 }
-
-List<Gaz> _cartList = <Gaz>[];
 
 class _BaseButtonState extends State<BaseButton> {
   @override

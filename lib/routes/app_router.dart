@@ -10,7 +10,7 @@ import 'package:rex/screens/home_page.dart';
 import 'package:rex/screens/our_contact.dart';
 import 'package:rex/screens/salon_form.dart';
 import 'package:rex/screens/salon_page.dart';
-import 'package:rex/screens/select_location.dart';
+import 'package:rex/screens/location/select_location.dart';
 import 'package:rex/screens/user_info.dart';
 
 import '../screens/gaz_form.dart';

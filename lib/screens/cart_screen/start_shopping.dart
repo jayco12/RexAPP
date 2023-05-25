@@ -1,10 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:rex/screens/gaz_page.dart';
-
 import '../../components/utilities/constants.dart';
 import '../../components/utilities/submit.dart';
-import '../../routes/app_router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
 class StartShopping extends StatefulWidget {
   const StartShopping({Key? key}) : super(key: key);
@@ -48,6 +45,7 @@ class _StartShoppingState extends State<StartShopping> {
         Submit(
           margin: EdgeInsets.only(left: 111.0, right: 111.0),
           text: 'Commencer à magasiner',
+          onPressed: () => context.router.pushNamed('/gaz-page'),
         ),
       ],
     );

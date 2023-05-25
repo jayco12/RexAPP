@@ -10,6 +10,7 @@ class GazFormField extends StatelessWidget {
     required this.enabled,
     required this.margin,
     this.controller,
+    this.initialValue,
     required this.text,
   }) : super(key: key);
 
@@ -17,6 +18,7 @@ class GazFormField extends StatelessWidget {
   final dynamic margin;
   final String text;
   final controller;
+  final initialValue;
   final void Function(String)? onChanged;
 
   @override
@@ -24,6 +26,7 @@ class GazFormField extends StatelessWidget {
     return Container(
       margin: margin,
       child: TextFormField(
+        initialValue: initialValue,
         controller: controller,
         enabled: enabled,
         keyboardType: TextInputType.number,

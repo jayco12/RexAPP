@@ -35,6 +35,7 @@ class Submit extends StatelessWidget {
           ),
         ),
         child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -45,7 +46,7 @@ class Submit extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 4.78,
+                width: 3.78,
               ),
               const Icon(
                 Icons.arrow_forward_rounded,

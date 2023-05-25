@@ -6,7 +6,6 @@ import 'package:rex/components/header_footer/top_bar.dart';
 import 'package:rex/components/utilities/floating_button.dart';
 
 class SalonPage extends StatelessWidget {
-
   const SalonPage({Key? key}) : super(key: key);
 
   @override
@@ -30,7 +29,6 @@ class SalonPage extends StatelessWidget {
           aboutnavigator: InkResponse(
               onTap: () {
                 context.router.pushNamed('/about-us');
-
               },
               child: const Icon(Icons.group_rounded)),
         ),
