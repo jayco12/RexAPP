@@ -8,12 +8,7 @@ import 'package:rex/components/header_footer/top_bar.dart';
 import 'package:rex/components/utilities/floating_button.dart';
 
 class GazPage extends StatelessWidget {
-  static const routeName = '/gaz.page';
-  final bool addAppbar;
-  const GazPage({
-    Key? key,
-    required this.addAppbar,
-  }) : super(key: key);
+  const GazPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
