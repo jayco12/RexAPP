@@ -5,9 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:rex/screens/cart_screen/start_shopping.dart';
 import '../../components/utilities/constants.dart';
 import '../../components/utilities/submit.dart';
-import '../gaz_form.dart';
 import 'package:hive/hive.dart';
-
 import 'models/Gaz.dart';
 
 class CartScreen2 extends StatefulWidget {

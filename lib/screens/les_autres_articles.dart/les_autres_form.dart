@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'dart:async';
 import 'dart:io';
 import 'package:camera/camera.dart';
@@ -12,7 +14,6 @@ import 'package:rex/components/screens template/gas_form_text.dart';
 import 'package:rex/components/utilities/gaz_class.dart';
 
 import '../cart_screen/models/Gaz.dart';
-import '../gaz_form.dart';
 
 class LesAutresForm extends StatefulWidget {
   const LesAutresForm({
@@ -36,7 +37,6 @@ class _LesAutresFormState extends State<LesAutresForm> {
   }
 
   int quantite = 1;
-  final _formKey = GlobalKey<FormState>();
   final imageController = TextEditingController();
   final qualityController = TextEditingController();
   final priceController = TextEditingController();

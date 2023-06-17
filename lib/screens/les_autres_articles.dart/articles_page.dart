@@ -1,8 +1,9 @@
+// ignore_for_file: unused_local_variable
+
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:rex/components/utilities/back_arrow.dart';
 import 'package:rex/components/utilities/choice_text.dart';
@@ -11,12 +12,9 @@ import 'package:rex/components/utilities/submit.dart';
 import 'package:rex/components/screens template/gas_form_field.dart';
 import 'package:rex/components/header_footer/top_bar.dart';
 import 'package:rex/components/screens template/gas_form_text.dart';
-import 'package:rex/components/utilities/floating_button.dart';
 import 'package:rex/components/utilities/gaz_class.dart';
-import 'package:provider/provider.dart';
 
 import '../cart_screen/models/Gaz.dart';
-import '../gaz_form.dart';
 
 class ArticlesForm extends StatefulWidget {
   ArticlesForm({Key? key, required this.image}) : super(key: key);
@@ -40,7 +38,6 @@ class _ArticlesFormState extends State<ArticlesForm> {
   }
 
   late int quantite = 1;
-  final _formKey = GlobalKey<FormState>();
   final imageController = TextEditingController();
   final qualityController = TextEditingController();
   final priceController = TextEditingController();

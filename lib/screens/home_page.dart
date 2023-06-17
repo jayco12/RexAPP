@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 import 'package:rex/components/screens template/businesses.dart';
 import 'package:rex/components/utilities/choice_text.dart';
 
@@ -22,7 +20,6 @@ class _HomePageState extends State<HomePage> {
     "images/All Gaz1.jpg",
   ];
   CarouselController buttonCarouselController = CarouselController();
-  int _currentRoute = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(

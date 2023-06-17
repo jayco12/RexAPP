@@ -1,14 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:rex/components/header_footer/base_button.dart';
-import 'package:rex/components/screens template/gaz_order.dart';
 import 'package:rex/components/utilities/choice_text.dart';
-import 'package:rex/screens/gaz_form.dart';
-import 'package:rex/components/header_footer/top_bar.dart';
-import 'package:rex/components/utilities/floating_button.dart';
 import 'package:rex/screens/les_autres_articles.dart/articles_page.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../components/utilities/back_arrow.dart';
 
 class Articles extends StatelessWidget {

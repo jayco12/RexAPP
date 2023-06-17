@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unused_label
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
